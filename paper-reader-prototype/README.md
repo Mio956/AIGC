@@ -1,6 +1,6 @@
 # 杭电计算机学院论文初筛阅读助手
 
-公开演示：[论文初筛阅读助手](https://mio956.github.io/PaperIntensiveReading/prototype/)
+公开演示：[论文初筛阅读助手](https://mio956.github.io/AIGC/paper-reader-prototype/)
 
 
 基于 Vite、原生 JavaScript 与 PDF.js 的纯前端原型。PDF 在浏览器中解析，不会上传到存储服务。首次打开默认提供清楚标注为演示数据的样例卡片；上传 PDF 后，本地提取可复制文本，再用可解释的本地关键词规则生成**演示分析**，不等同于模型结论。

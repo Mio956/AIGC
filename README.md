@@ -5,3 +5,8 @@
 - 开发语言：Python
 - 版本管理：Git & GitHub
 - 辅助工具：WorkBuddy
+
+## 论文初筛阅读助手
+
+- 源码：[`paper-reader-prototype/`](./paper-reader-prototype/)
+- 在线地址：https://mio956.github.io/AIGC/paper-reader-prototype/
