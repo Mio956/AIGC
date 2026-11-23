@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fa" />
+    <meta name="description" content="杭电计算机学院研究所论文智能初筛阅读助手，支持本地 PDF 文本提取与论文阅读卡片生成。" />
+    <title>论文初筛阅读助手 · 杭电计算机学院</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="论文初筛阅读助手首页">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M8 5.5h10l6 6V26a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 8 26V5.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M18 6v6h6M12 17h8m-8 4h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <span class="brand-copy"><strong>论文初筛阅读助手</strong><span>杭电计算机学院 · 研究方向辅助匹配</span></span>
+        </a>
+        <div class="topbar-actions"><span class="local-indicator"><i></i> 本地处理</span><button class="button button-quiet" id="clearButton" type="button" disabled>清空当前论文</button></div>
+      </header>
+
+      <main id="top" class="main-content">
+        <section class="intro" aria-labelledby="pageTitle"><div><p class="eyebrow">RESEARCH PAPER · QUICK REVIEW</p><h1 id="pageTitle">先看方向，再读论文。</h1><p class="intro-description">上传一篇论文，快速提取结构信息并辅助判断研究方向。文件只在当前浏览器中解析。</p></div><div class="intro-note"><span class="note-icon" aria-hidden="true">✳</span><span>研究方向匹配仅供初筛参考，请人工核对。</span></div></section>
+
+        <section class="upload-card" aria-labelledby="uploadHeading">
+          <div class="section-heading"><div><span class="section-kicker">01 / IMPORT</span><h2 id="uploadHeading">添加一篇论文</h2></div><span class="format-label"><span>PDF</span> 单篇 · 最大 50 MB</span></div>
+          <label id="dropZone" class="drop-zone" for="fileInput" tabindex="0" role="button" aria-label="点击或拖拽选择 PDF 文件">
+            <span class="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 15V4m0 0L8 8m4-4 4 4M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="drop-copy"><strong>拖拽 PDF 到这里，或 <span>点击选择文件</span></strong><small>PDF 文本仅在本地浏览器中处理，不会上传到服务器</small></span>
+            <input id="fileInput" type="file" accept="application/pdf,.pdf" hidden />
+          </label>
+          <div id="uploadStatus" class="upload-status" role="status" aria-live="polite"><span class="status-dot"></span><span id="statusText">就绪 · 当前样例为演示数据</span><span id="fileMeta" class="file-meta"></span></div>
+          <div id="progressWrap" class="progress-wrap" hidden><div class="progress-label"><span id="progressLabel">正在读取 PDF…</span><span id="progressPercent">0%</span></div><div class="progress-track"><span id="progressBar"></span></div></div>
+        </section>
+
+        <section class="library" aria-labelledby="libraryHeading">
+          <div class="library-title-row"><div><span class="section-kicker">02 / LIBRARY</span><h2 id="libraryHeading">论文阅读卡片 <span id="paperCount" class="count">01</span></h2></div><span class="demo-badge"><i></i> DEMO · 演示数据</span></div>
+          <div class="filters"><label class="search-box" for="searchInput"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8" stroke="currentColor" stroke-width="1.5"/><path d="m13 13 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><input id="searchInput" type="search" placeholder="搜索论文标题或关键词…" autocomplete="off"/><kbd>⌘ K</kbd></label><label class="select-wrap" for="instituteFilter"><span class="sr-only">按研究所筛选</span><select id="instituteFilter"><option value="">全部研究所</option></select><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></label></div>
+          <div class="workspace">
+            <aside id="paperList" class="paper-list" aria-label="论文列表"></aside>
+            <section id="detailPanel" class="detail-panel" aria-label="论文详情"></section>
+          </div>
+        </section>
+        <footer class="page-footer"><span>杭电计算机学院 · 论文初筛阅读助手</span><span>研究方向匹配仅供初筛参考，请人工核对。</span></footer>
+      </main>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+
